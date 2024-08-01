@@ -1,0 +1,35 @@
+/* @font-face {
+	font-family: 'Regular'; 
+	src: url(../assets/fonts/static/RedHatText-Regular.ttf); 
+}
+
+@font-face {
+	font-family: 'Bold'; 
+	src: url(../assets/fonts/static/RedHatText-Bold.ttf); 
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* .title {
+  font-family: 'Bold';
+} */
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  /* background: url(../assets/images/image-waffle-desktop.jpg) no-repeat center;
+  background-size: cover; */
+}
