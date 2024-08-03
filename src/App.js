@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import data from './data.json';
-import './App.css';
 import Product from './components/Product';
+import Cart from './components/Cart';
+import './App.css';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -12,16 +13,18 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className='title'>Desserts</h1>
-      <div className='products'>
-        {products && products.map((product) => 
+      <div>
+        <h1 className='title'>Desserts</h1>
+        <div className='products'>
+          {products && products.map((product) => 
             <Product 
               key={product.category} 
               product={product} 
             />
-        )}
+          )}
+        </div>
       </div>
-      
+      <Cart />
     </div>
   );
 }
