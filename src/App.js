@@ -6,10 +6,19 @@ import './App.css';
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
 
   useEffect(() => {
     setProducts(data);
   },[])
+
+  const handleAddToCart = (product, quantity) => {
+    setSelectedProducts([...selectedProducts, {product, quantity}])
+  }
+
+
+
+
 
   return (
     <div className="App">
@@ -20,11 +29,14 @@ function App() {
             <Product 
               key={product.category} 
               product={product} 
+              handleAddToCart={handleAddToCart}
             />
           )}
         </div>
       </div>
-      <Cart />
+      <Cart 
+        selectedProducts={selectedProducts}
+      />
     </div>
   );
 }

@@ -94,6 +94,7 @@ body {
 .decrease:hover,
 .increase:hover {
   background-color: hsl(13, 31%, 94%);
+  transition: .3s;
 }
 
 .decrease {
@@ -104,6 +105,10 @@ body {
   background: url(../public/images/icon-increment-quantity.svg) no-repeat center;
 }
 
+.quantity {
+  width: 11px;
+}
+
 .cart-img {
   background: url(../public/images/icon-add-to-cart.svg) no-repeat center;
   height: 24px;
@@ -111,7 +116,7 @@ body {
 }
 
 .cart {
-  height: 24%;
+  /* height: 24%; */
   padding: 25px 20px;
   border-radius: 15px;
   background-color: white;
@@ -131,4 +136,32 @@ body {
   font-family: 'Bold';
   color: hsl(7, 20%, 60%);
   text-align: center;
+}
+
+.delivery-info {
+  display: flex;
+  align-items: center;
+  padding: 20px 30px;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: hsl(20, 50%, 98%);
+}
+
+.carbon-neutral-img {
+  display: flex;
+  background: url(../public/images/icon-carbon-neutral.svg) no-repeat;
+  height: 24px;
+  width: 24px;
+}
+
+.confirm-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 30px;
+  background-color: hsl(14, 86%, 42%);
+  color: white;
+  cursor: pointer;
 }

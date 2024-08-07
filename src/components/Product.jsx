@@ -1,13 +1,39 @@
 import React, { useState } from 'react'
 
-const Product = ({ product }) => {
+const Product = ({ product, handleAddToCart }) => {
   const [isAdded, setIsAdded] = useState(false)
   const [quantity, setQuantity] = useState(0)
 
   const handleAdd = () => {
+    if (quantity > 0) {
+      handleAddToCart(product, quantity)
+      setIsAdded(false)
+    } else {
+      setIsAdded(false)
+    }
 
-    setIsAdded(true)
   }
+
+  const handleDecrease = (e) => {
+    e.stopPropagation()
+    if (quantity > 0) {
+      setQuantity(quantity - 1)
+    } else {
+      setQuantity(0)
+    }
+  }
+
+  const handleIncrease = (e) => {
+    e.stopPropagation()
+    if (quantity < 10) {
+      setQuantity(quantity + 1)
+    } else {
+      setQuantity(10)
+    }
+  }
+
+  const productPrice = product.price.toFixed(2)
+  
 
   return (
     <div className='product'>
@@ -15,14 +41,14 @@ const Product = ({ product }) => {
         <img className='product-img' src={product.image.desktop} alt={product.category} />
         {isAdded 
           ? (
-            <button className='add-to-cart added'>
-              <span className='decrease'></span>
-              {quantity}
-              <span className='increase'></span>
-            </button>
+            <div className='add-to-cart added' onClick={handleAdd}>
+              <button className='decrease' onClick={handleDecrease}></button>
+              <span className='quantity'>{quantity}</span>
+              <button className='increase' onClick={handleIncrease}></button>
+            </div>
             )
           : (
-            <button className='add-to-cart' onClick={handleAdd}>
+            <button className='add-to-cart' onClick={() => setIsAdded(true)}>
               <span className='cart-img'></span>
               Add to Cart
             </button>
@@ -31,7 +57,7 @@ const Product = ({ product }) => {
       </div>
       <span>{product.category}</span>
       <strong>{product.name}</strong>
-      <span>${product.price}</span>
+      <span>${productPrice}</span>
     </div>
   )
 }
