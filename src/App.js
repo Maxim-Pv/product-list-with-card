@@ -13,12 +13,23 @@ function App() {
   },[])
 
   const handleAddToCart = (product, quantity) => {
+    const existingProduct = selectedProducts.find(
+      (selectedProduct) => selectedProduct.product.category === product.category
+    )
+    if (existingProduct) {
+      existingProduct.quantity += quantity
+      setSelectedProducts([...selectedProducts])
+      return
+    }
+    
     setSelectedProducts([...selectedProducts, {product, quantity}])
   }
 
-
-
-
+  const handleRemoveFromCart = (product) => {
+    setSelectedProducts(selectedProducts.filter(
+      (selectedProduct) => selectedProduct.product.category !== product.product.category)
+    )
+  }
 
   return (
     <div className="App">
@@ -36,6 +47,7 @@ function App() {
       </div>
       <Cart 
         selectedProducts={selectedProducts}
+        handleRemove={handleRemoveFromCart}
       />
     </div>
   );

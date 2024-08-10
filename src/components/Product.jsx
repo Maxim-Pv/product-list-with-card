@@ -11,7 +11,6 @@ const Product = ({ product, handleAddToCart }) => {
     } else {
       setIsAdded(false)
     }
-
   }
 
   const handleDecrease = (e) => {

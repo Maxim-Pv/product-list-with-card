@@ -14,6 +14,10 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style-type: none;
+}
+
 body {
   font-family: 'Regular';
 }
@@ -116,8 +120,8 @@ body {
 }
 
 .cart {
-  /* height: 24%; */
-  padding: 25px 20px;
+  align-self: start;
+  padding: 25px;
   border-radius: 15px;
   background-color: white;
 }
@@ -141,10 +145,15 @@ body {
 .delivery-info {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 20px 30px;
   gap: 10px;
   border-radius: 10px;
   background-color: hsl(20, 50%, 98%);
+}
+
+.delivery-text {
+  font-size: 14px;
 }
 
 .carbon-neutral-img {
@@ -156,12 +165,85 @@ body {
 
 .confirm-btn {
   width: 100%;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 14px;
+  margin-top: 30px;
+  padding: 20px;
+  font-size: 16px;
+  font-family: "Bold";
   border: none;
   border-radius: 30px;
   background-color: hsl(14, 86%, 42%);
   color: white;
   cursor: pointer;
+}
+
+.confirm-btn:hover {
+  transition: all .3s;
+  background-color: hsl(14deg 84.31% 34.6%);
+}
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid hsl(7deg 20% 60% / 20%);
+}
+
+.cart-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quantity {
+  font-family: 'Bold';
+}
+
+.price {
+  color: hsl(7, 20%, 60%);
+}
+
+.remove-btn {
+  height: 16px;
+  width: 16px;
+  border: none;
+  background-color: transparent;
+  border: 1px solid hsl(7, 20%, 60%);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.remove-btn:hover svg path {
+  transition: all .3s;
+  fill: black;
+}
+
+.remove-btn:hover {
+  border-color: black;
+  transition: all .3s;
+}
+
+.cart-product-quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantityInCart {
+  padding-right: 10px;
+  font-family: 'Bold';
+  color: hsl(14, 86%, 42%);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  color: hsl(7, 20%, 60%);
+}
+
+.total-price {
+  font-family: 'Bold';
+  font-size: 28px;
+  color: black;
 }
