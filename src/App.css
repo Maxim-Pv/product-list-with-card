@@ -60,6 +60,10 @@ body {
   margin-bottom: 30px;
 }
 
+.selected {
+  border: 2px solid hsl(14, 86%, 42%);
+}
+
 .add-to-cart {
   display: flex;
   align-items: center;
@@ -120,14 +124,6 @@ body {
   fill: hsl(14, 86%, 42%);
   transition: .3s;
 }
-
-/* .decrease {
-  background: url(../public/images/icon-decrement-quantity.svg) no-repeat center;
-}
-
-.increase {
-  background: url(../public/images/icon-increment-quantity.svg) no-repeat center;
-} */
 
 .quantity {
   width: 11px;

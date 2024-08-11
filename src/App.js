@@ -41,6 +41,7 @@ function App() {
               key={product.category} 
               product={product} 
               handleAddToCart={handleAddToCart}
+              selectedProducts={selectedProducts}
             />
           )}
         </div>

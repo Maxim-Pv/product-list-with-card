@@ -1,13 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Product = ({ product, handleAddToCart }) => {
+const Product = ({ product, handleAddToCart, selectedProducts }) => {
   const [isAdded, setIsAdded] = useState(false)
   const [quantity, setQuantity] = useState(0)
+  const [selected, setSelected] = useState(false)
+
+  useEffect(() => {
+    const isSelected = selectedProducts.find(
+      (selectedProduct) => selectedProduct.product.category === product.category
+    )
+
+    if (isSelected) {
+      setSelected(true)
+    } else {
+      setSelected(false)
+      setIsAdded(false)
+    }
+  },[selectedProducts, product])
 
   const handleAdd = () => {
     if (quantity > 0) {
       handleAddToCart(product, quantity)
-      setIsAdded(false)
+      setSelected(true)
     } else {
       setIsAdded(false)
     }
@@ -37,7 +51,10 @@ const Product = ({ product, handleAddToCart }) => {
   return (
     <div className='product'>
       <div className='product-img-container'>
-        <img className='product-img' src={product.image.desktop} alt={product.category} />
+        <img className={'product-img' + (selected ? ' selected' : '')} 
+          src={product.image.desktop} 
+          alt={product.category} 
+        />
         {isAdded 
           ? (
             <div className='add-to-cart added' onClick={handleAdd}>
