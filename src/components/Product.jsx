@@ -49,14 +49,14 @@ const Product = ({ product, handleAddToCart }) => {
           : (
             <button className='add-to-cart' onClick={() => setIsAdded(true)}>
               <span className='cart-img'></span>
-              Add to Cart
+              <strong>Add to Cart</strong>
             </button>
             )
         }
       </div>
-      <span>{product.category}</span>
+      <span className='category'>{product.category}</span>
       <strong>{product.name}</strong>
-      <span>${productPrice}</span>
+      <span className='product-price'>${productPrice}</span>
     </div>
   )
 }

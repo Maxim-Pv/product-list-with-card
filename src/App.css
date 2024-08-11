@@ -113,6 +113,16 @@ body {
   width: 11px;
 }
 
+.category,
+.price {
+  color: hsl(7, 20%, 60%);
+}
+
+.product-price {
+  font-family: 'Bold';
+  color: hsl(14, 86%, 42%);
+}
+
 .cart-img {
   background: url(../public/images/icon-add-to-cart.svg) no-repeat center;
   height: 24px;
@@ -132,7 +142,7 @@ body {
 
 .empty-cart-img {
   display: block;
-  height: 67%;
+  height: 150px;
   background: url(../public/images/illustration-empty-cart.svg) no-repeat center;
 }
 
@@ -197,10 +207,6 @@ body {
 
 .quantity {
   font-family: 'Bold';
-}
-
-.price {
-  color: hsl(7, 20%, 60%);
 }
 
 .remove-btn {
