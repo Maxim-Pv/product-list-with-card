@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import data from './data.json';
 import Product from './components/Product';
 import Cart from './components/Cart';
+import Confirm from './components/Confirm';
 import './App.css';
 
 function App() {
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
 
   useEffect(() => {
     setProducts(data);
@@ -31,10 +33,23 @@ function App() {
     )
   }
 
+  const handleTotal = () => {
+    return selectedProducts.reduce((acc, curr) => acc + curr.product.price * curr.quantity, 0)
+  }
+
+
   return (
     <div className="App">
+      {isOrderConfirmed && 
+        <Confirm 
+          selectedProducts={selectedProducts}
+          setSelectedProducts={setSelectedProducts}
+          total={handleTotal && handleTotal()}
+          isOrderConfirmed={isOrderConfirmed}
+          setIsOrderConfirmed={setIsOrderConfirmed}
+      />}
       <div>
-        <h1 className='title'>Desserts</h1>
+        <h1 className='heading'>Desserts</h1>
         <div className='products'>
           {products && products.map((product) => 
             <Product 
@@ -49,6 +64,8 @@ function App() {
       <Cart 
         selectedProducts={selectedProducts}
         handleRemove={handleRemoveFromCart}
+        total={handleTotal && handleTotal()}
+        setIsOrderConfirmed={setIsOrderConfirmed}
       />
     </div>
   );

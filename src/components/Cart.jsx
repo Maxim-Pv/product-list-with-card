@@ -1,16 +1,14 @@
 import React from 'react'
 
-const Cart = ({ selectedProducts, handleRemove }) => {
-
-  const total = selectedProducts.reduce((acc, curr) => acc + curr.product.price * curr.quantity, 0)
+const Cart = ({ selectedProducts, handleRemove, total, setIsOrderConfirmed }) => {
+  
   const sumProducts = selectedProducts.reduce((acc, curr) => acc + curr.quantity, 0)
 
-  
   return (
     <div className='cart'>
-      <h2 className='title cart-title'>Your Cart ({sumProducts})</h2>
+      <h2 className='cart-title'>Your Cart ({sumProducts})</h2>
       {selectedProducts.length !== 0
-        ? (<div>
+        ? (<div className='cart-products'>
             <ul>
             {selectedProducts.map((product) => 
               <li className='cart-product' key={product.product.category} >
@@ -28,22 +26,26 @@ const Cart = ({ selectedProducts, handleRemove }) => {
                   </svg>
                 </button>
               </li>
-            )}
-          </ul>
-          <div className='cart-total'>
-            <span>Order Total</span>
-            <strong className='total-price'>${total.toFixed(2)}</strong>
-          </div>
-          <div className='delivery-info'>
-            <span className='carbon-neutral-img'></span>
-            <p className='delivery-text'>This is a <strong>carbon-neutral</strong> delivery</p>
-          </div>
-          <button className='confirm-btn'>Confirm order</button>
-        </div>)
+              )}
+            </ul>
+
+            <div className='cart-total'>
+              <span>Order Total</span>
+              <strong className='total-price'>${total.toFixed(2)}</strong>
+            </div>
+            
+            <div className='delivery-info'>
+              <span className='carbon-neutral-img'></span>
+              <p className='delivery-text'>This is a <strong>carbon-neutral</strong> delivery</p>
+            </div>
+            <button className='confirm-btn' onClick={() => setIsOrderConfirmed(true)}>
+              Confirm order
+            </button>
+          </div>)
         : (<>
             <span className='empty-cart-img'></span>
             <p className='cart-text'>Your added items will appear here</p>
-        </>)
+          </>)
       }
       
     </div>

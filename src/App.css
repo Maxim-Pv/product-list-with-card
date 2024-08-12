@@ -32,7 +32,7 @@ body {
   background-color: hsl(20, 50%, 98%);
 }
 
-.title {
+.heading {
   margin-bottom: 20px;
   font-family: 'Bold';
 }
@@ -146,6 +146,8 @@ body {
 }
 
 .cart {
+  display: flex;
+  flex-direction: column;
   align-self: start;
   padding: 25px;
   border-radius: 15px;
@@ -153,7 +155,14 @@ body {
 }
 
 .cart-title {
+  font-family: 'Bold';
   color: hsl(14, 86%, 42%);
+}
+
+.cart-products {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .empty-cart-img {
@@ -191,8 +200,7 @@ body {
 
 .confirm-btn {
   width: 100%;
-  margin-top: 30px;
-  padding: 20px;
+  padding: 17px;
   font-size: 16px;
   font-family: "Bold";
   border: none;
@@ -260,7 +268,7 @@ body {
 .cart-total {
   display: flex;
   justify-content: space-between;
-  padding: 20px 0;
+  align-items: center;
   color: hsl(7, 20%, 60%);
 }
 
@@ -269,3 +277,86 @@ body {
   font-size: 28px;
   color: black;
 }
+
+.confirm {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: #000000b3;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+}
+
+.confirm.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.confirm-container {
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 10px;
+  gap: 30px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+.check {
+  display: block;
+  background: url(../public/images/icon-order-confirmed.svg) no-repeat;
+  background-size: contain;
+  height: 40px;
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.confirm-title {
+  font-family: 'Bold';
+}
+
+.confirm-text {
+  font-size: 14px;
+  color: hsl(7, 20%, 60%);
+}
+
+.confirm-items {
+  padding: 0 20px;
+  border-radius: 7px;
+  background-color: hsl(13, 31%, 94%);
+}
+
+.confirm-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid hsl(7deg 20% 60% / 20%);
+}
+
+.confirm-item-img {
+  height: 50px;
+  border-radius: 5px;
+}
+
+.confirm-item-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.confirm-item-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
