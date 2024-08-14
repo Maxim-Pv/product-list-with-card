@@ -38,7 +38,7 @@ const Confirm = ({
               <strong>${(product.product.price * product.quantity).toFixed(2)}</strong>
             </li>
           ))}
-          <li className='confirm-item'>
+          <li className='confirm-total'>
             <span>Order Total</span>
             <strong className='total-price'>${total.toFixed(2)}</strong>
           </li>
