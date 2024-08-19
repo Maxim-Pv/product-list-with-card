@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [solution](https://www.frontendmentor.io/solutions/rock-paper-scissors-using-react-cs2SvI9ubV)
-- Live Site URL: [site](https://rock-paper-scissors-steel-rho.vercel.app/)
+- Solution URL: [link](https://www.frontendmentor.io/solutions/product-list-with-cart-using-react-8jjzlMz2be)
+- Live Site URL: [link](https://product-list-with-card.vercel.app/)
 
 ## My process
 
